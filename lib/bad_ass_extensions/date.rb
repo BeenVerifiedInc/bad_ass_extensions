@@ -12,13 +12,7 @@ class Date
   end
   
   def self.months_between(start, finish)
-    if start.year != finish.year
-      difference = (12 - start.month) + (12 * years_between(start, finish)) + finish.month
-    else
-      difference = finish.month - start.month
-    end
-    difference -= 1 if finish.day < start.day
-    difference
+    (finish.year * 12 + finish.month) - (start.year * 12 + start.month)
   end
   
   def self.years_between(start, finish)
